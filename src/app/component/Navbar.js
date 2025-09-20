@@ -1,18 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { GrShop } from "react-icons/gr";
-import { Menu, X } from "lucide-react";
+import { Menu, X,ChevronDown } from "lucide-react";
 import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { ImWindows } from "react-icons/im";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const pathName = usePathname();
-
-
 
   const navItems = [
     {
@@ -23,7 +22,7 @@ export default function Navbar() {
     {
       id: 2,
       t: "Shop",
-      href: "user/shop",
+      href: "/shop",
     },
     {
       id: 3,
@@ -60,7 +59,33 @@ export default function Navbar() {
               onClick={() => setOpen(true)}
             />
           </div>
-          <div>zxc</div>
+          <div className="gap-40 items-center hidden lg:flex">
+            <div className="dropdown dropdown-hover cursor-pointer">
+              <div className="flex justify-center items-center bg-blue-700 text-gray-200 font-semibold gap-2 p-5 rounded-lg max-w-80">
+                <ImWindows  size={20}/>
+                <p>Brows All Categories</p>
+               <ChevronDown  size={20}/>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-box min-w-60 z-1 p-2 shadow-sm"
+              >
+                <li>
+                  <a>Login</a>
+                </li>
+                <li>
+                  <a>Sign Up</a>
+                </li>
+              </ul>
+            </div>
+            <div className="flex items-center gap-6 font-semibold">
+              {
+                navItems?.map(i=>(
+                  <Link key={i?.id} href={i?.href}>{i?.t}</Link>
+                ))
+              }
+            </div>
+          </div>
         </div>
       </div>
 

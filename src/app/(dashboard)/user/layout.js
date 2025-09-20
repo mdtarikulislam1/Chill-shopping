@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/app/component/Footer";
 import Navbar from "@/app/component/Navbar";
 import Navtop from "@/app/component/Navtop";
 import React, { useEffect, useState } from "react";
@@ -25,6 +26,7 @@ export default function layout({ children }) {
       <Navtop />
       <Navbar />
       <main className="min-h-screen">{children}</main>
+      <Footer/>
     </div>
   );
 }

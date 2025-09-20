@@ -78,18 +78,10 @@ export default function Navtop() {
             </p>
           </div>
           {/* Search */}
-          <div className="border border-blue-500 rounded-3xl w-[400px]">
-           <div className="flex justify-center items-center py-2">
-            <div className="font-semibold text-blue-500 text-sm">All Cat</div>
-            <div><span className="px-4 font-normal text-xl text-gray-400">|</span></div>
-            <div>
-              <p className="text-gray-400 pr-30">I'm searching for ...</p>
-            </div>
-            <div className="text-gray-500">
-               <Search />
-            </div>
-           </div>
-          </div>
+         <label className="relative">
+          <input className="border border-blue-400 rounded-4xl py-3 px-5 min-w-90 active:border-blue-500 focus:outline-none" type="search" placeholder="I'm searching for..."></input>
+          <Search className="absolute top-3.5 right-4 text-gray-300"/>
+         </label>
           <div className="relative">
               <ShoppingCart />
               <p className="absolute bg-blue-700 w-full h-full rounded-full flex items-center justify-center text-[12px] text-white -top-4 left-3">22</p>
