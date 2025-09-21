@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { GrShop } from "react-icons/gr";
-import { Menu, X,ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ImWindows } from "react-icons/im";
@@ -22,22 +22,22 @@ export default function Navbar() {
     {
       id: 2,
       t: "Shop",
-      href: "/shop",
+      href: "/user/shop",
     },
     {
       id: 3,
       t: "About Us",
-      href: "/about",
+      href: "/user/about",
     },
     {
       id: 4,
       t: "Faq",
-      href: "/faq",
+      href: "/user/faq",
     },
     {
       id: 5,
       t: "Contact",
-      href: "/contact",
+      href: "/user/contact",
     },
   ];
 
@@ -62,9 +62,9 @@ export default function Navbar() {
           <div className="gap-40 items-center hidden lg:flex">
             <div className="dropdown dropdown-hover cursor-pointer">
               <div className="flex justify-center items-center bg-blue-700 text-gray-200 font-semibold gap-2 p-5 rounded-lg max-w-80">
-                <ImWindows  size={20}/>
+                <ImWindows size={20} />
                 <p>Brows All Categories</p>
-               <ChevronDown  size={20}/>
+                <ChevronDown size={20} />
               </div>
               <ul
                 tabIndex={0}
@@ -79,11 +79,19 @@ export default function Navbar() {
               </ul>
             </div>
             <div className="flex items-center gap-6 font-semibold">
-              {
-                navItems?.map(i=>(
-                  <Link key={i?.id} href={i?.href}>{i?.t}</Link>
-                ))
-              }
+              {navItems?.map((i) => (
+                <Link
+                  className={`t-s${
+                    pathName === i.href
+                      ? " border-b-2 border-blue-600 text-blue-600"
+                      : "text-gray-700"
+                  }`}
+                  key={i?.id}
+                  href={i?.href}
+                >
+                  {i?.t}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -138,15 +146,15 @@ export default function Navbar() {
             </div>
           </div>
           {/* Links */}
-          <div className="flex flex-col m-4">
+          <div className="flex flex-col gap-2 m-4">
             {navItems?.map((i) => (
               <Link
                 href={i.href}
                 key={i.id}
-                className={`t-s py-2 border-b ${
+                className={`t-s${
                   pathName === i.href
-                    ? "text-blue-600 border-blue-400"
-                    : "text-gray-700 border-gray-200"
+                    ? " border-b-2 border-blue-400 text-blue-600"
+                    : "text-gray-700  border-b  border-gray-200"
                 }`}
               >
                 {i.t}
