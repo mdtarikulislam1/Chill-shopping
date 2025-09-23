@@ -4,7 +4,7 @@ import Navbar from "@/app/component/Navbar";
 import Navtop from "@/app/component/Navtop";
 import React, { useEffect, useState } from "react";
 
-export default function layout({ children }) {
+export default function Layout({ children }) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     // page load হওয়ার পরে loading false হবে

@@ -3,6 +3,7 @@
 import React from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Achivements() {
   const countItems = [
@@ -14,9 +15,11 @@ export default function Achivements() {
 
   return (
     <div className="container-1400 my-20 px-4 flex flex-col lg:flex-row justify-center gap-5">
-      <img
+      <Image
         src="https://i.postimg.cc/mDx7xZSF/351d9da0eee49c1fa9baf5d0962088e1d4c72c08.png"
         alt="Achievements"
+        width={600} // adjust as needed
+        height={400} // adjust as needed
       />
       <div>
         <h4 className="text-3xl font-bold">Our Achievements</h4>

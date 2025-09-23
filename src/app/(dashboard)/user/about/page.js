@@ -6,6 +6,7 @@ import { KeyRound } from "lucide-react";
 import AboutItems from "@/app/component/about-items/AboutItems";
 import Achivements from "@/app/component/about-items/Achivements";
 import Customer from "@/app/component/about-items/Customer";
+import Image from "next/image";
 
 // export const metadata = {
 //   title: "Chil | About",
@@ -17,12 +18,12 @@ export default function page() {
   return (
     <>
       <div className="container-1400 my-20 px-4">
-        <div className="flex flex-col justify-center items-center gap-5 lg:flex-row">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
           <div>
-            <h3 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-              Explore the Latest & Most <br /> Delightful Items Essentials
+            <h3 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-wrap">
+              Explore the Latest & Most Delightful Items Essentials
             </h3>
-            <p className="font-semibold text-lg text-gray-500 pt-4 text-wrap">
+            <p className="font-semibold text-lg text-gray-500 pt-4 lg:max-w-2xl">
               Discover cutting-edge tech and top-quality products at Multipurse!
               We offer exceptional service, reliable choices, and competitive
               prices for all your gadget needs.
@@ -38,9 +39,9 @@ export default function page() {
                 <h4 className="font-semibold text-2xl">
                   100% Quality Products
                 </h4>
-                <p className="font-semibold text-sm text-gray-500">
-                  We provide top-notch, carefully curated essentials to brighten
-                  your little one's world.
+                <p className="font-semibold text-sm text-gray-500 max-w-80">
+                 {` We provide top-notch, carefully curated essentials to brighten
+                  your little one's world.`}
                 </p>
               </div>
             </div>
@@ -54,9 +55,8 @@ export default function page() {
                 <h4 className="font-semibold text-2xl">
                   100% Quality Products
                 </h4>
-                <p className="font-semibold text-sm text-gray-500">
-                  We provide top-notch, carefully curated essentials to brighten
-                  your little one's world.
+                <p className="font-semibold text-sm text-gray-500 max-w-80">
+                  We select the latest, most reliable products to your little ones.
                 </p>
               </div>
             </div>
@@ -65,14 +65,22 @@ export default function page() {
             </button>
           </div>
           <div className="relative">
-            <img
-              className="min-h-[450px] rounded-lg"
+           <Image
               src="https://i.postimg.cc/0NHm6Xkx/360-F-574057895-p-Harn-Rep-LEdwo-Gu-Xhq9-YZq-Pih-Ka-Bj-Uo-U.jpg"
-            ></img>
-            <img
-              className="absolute bottom-0 -left-30 rounded-lg min-h-80"
+              alt="Main product image"
+              width={400}
+              height={850}
+              className="rounded-lg w-full h-full min-h-[350px]"
+            />
+
+            {/* Decorative Image */}
+            <Image
               src="https://i.postimg.cc/DzzLw3KB/images.jpg"
-            ></img>
+              alt="Decorative image"
+              width={300}
+              height={200}
+              className="absolute bottom-0 -left-20 rounded-lg max-h-80"
+            />
           </div>
         </div>
       </div>

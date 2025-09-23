@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaStar } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Customer() {
   const slides = [
@@ -41,7 +42,6 @@ export default function Customer() {
       img: "https://i.postimg.cc/hvDJV187/IMG-20250805-155343-284-1-removebg-preview.png",
       style: "bg-blue-100",
     },
-   
   ];
 
   return (
@@ -67,12 +67,17 @@ export default function Customer() {
             className={`flex flex-col items-center justify-between rounded-lg shadow-md ${slide.style} relative min-h-96 transition-all duration-500 ease-in-out`}
           >
             <div className="p-5 text-center">
-              <img
+              <Image
                 src={slide.img}
                 alt={slide.name}
-                className="w-20 h-20 rounded-full mx-auto mb-3 object-cover"
+                width={60} // w-20 = 80px
+                height={60} // h-20 = 80px
+                className="rounded-full mx-auto mb-3 w-20 h-20"
               />
-              <h3 className="text-lg font-semibold text-gray-800">{slide.name}</h3>
+
+              <h3 className="text-lg font-semibold text-gray-800">
+                {slide.name}
+              </h3>
               <p className="text-sm text-gray-600">{slide.title}</p>
               <div className="flex justify-center gap-1 text-yellow-500 mt-2">
                 {[...Array(5)].map((_, i) => (
