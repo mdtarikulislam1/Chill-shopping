@@ -1,13 +1,17 @@
+"use client";
+
 import React from "react";
 import { Asterisk } from "lucide-react";
 import { KeyRound } from "lucide-react";
-import AboutItems from "@/app/component/AboutItems";
+import AboutItems from "@/app/component/about-items/AboutItems";
+import Achivements from "@/app/component/about-items/Achivements";
+import Customer from "@/app/component/about-items/Customer";
 
-export const metadata = {
-  title: "Chil | About",
-  description:
-    "Discover cutting-edge tech and top-quality products at Multipurse! We offer exceptional service, reliable choices, and competitive prices for all your gadget needs.",
-};
+// export const metadata = {
+//   title: "Chil | About",
+//   description:
+//     "Discover cutting-edge tech and top-quality products at Multipurse! We offer exceptional service, reliable choices, and competitive prices for all your gadget needs.",
+// };
 
 export default function page() {
   return (
@@ -18,7 +22,7 @@ export default function page() {
             <h3 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
               Explore the Latest & Most <br /> Delightful Items Essentials
             </h3>
-            <p className="font-semibold text-lg text-gray-500 pt-4">
+            <p className="font-semibold text-lg text-gray-500 pt-4 text-wrap">
               Discover cutting-edge tech and top-quality products at Multipurse!
               We offer exceptional service, reliable choices, and competitive
               prices for all your gadget needs.
@@ -72,7 +76,9 @@ export default function page() {
           </div>
         </div>
       </div>
-      <AboutItems></AboutItems>
+    <AboutItems/>
+    <Achivements/>
+    <Customer/>
     </>
   );
 }
