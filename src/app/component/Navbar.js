@@ -7,9 +7,12 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ImWindows } from "react-icons/im";
+import { User } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [openPage, setOpenPage] = useState(false);
+  const [openAccount, setOpenAccount] = useState(false);
 
   const pathName = usePathname();
 
@@ -78,13 +81,13 @@ export default function Navbar() {
                 </li>
               </ul>
             </div>
-            <div className="flex items-center gap-6 font-semibold">
+            <div className="flex items-center gap-6 font-semibold text-lg text-gray-600">
               {navItems?.map((i) => (
                 <Link
-                  className={`t-s${
+                  className={`${
                     pathName === i.href
-                      ? " border-b-2 border-blue-600 text-blue-600"
-                      : "text-gray-700"
+                      ? "text-blue-600"
+                      : "hover:text-blue-600"
                   }`}
                   key={i?.id}
                   href={i?.href}
@@ -92,6 +95,27 @@ export default function Navbar() {
                   {i?.t}
                 </Link>
               ))}
+              <div className="dropdown dropdown-hover cursor-pointer">
+                <p
+                  className={`${
+                    pathName === "/user/privacyPolicy"
+                      ? "text-blue-600"
+                      : "hover:text-blue-600"
+                  }`}
+                >
+                  Page +
+                </p>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-base-100 rounded-box z-1 p-2 shadow-sm"
+                >
+                  <li>
+                    <Link className="text-nowrap" href="/user/privacyPolicy">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -146,20 +170,68 @@ export default function Navbar() {
             </div>
           </div>
           {/* Links */}
-          <div className="flex flex-col gap-2 m-4">
+          <div className="flex flex-col gap-2 m-4 font-semibold text-lg text-gray-700">
             {navItems?.map((i) => (
               <Link
                 href={i.href}
                 key={i.id}
-                className={`t-s${
-                  pathName === i.href
-                    ? " border-b-2 border-blue-400 text-blue-600"
-                    : "text-gray-700  border-b  border-gray-200"
+                className={`border-b-2 pb-1${
+                  pathName === i.href ? " text-blue-600" : ""
                 }`}
               >
                 {i.t}
               </Link>
             ))}
+            <div className="w-full text-gray-700 space-y-4">
+              {/* Page Dropdown */}
+              <div className="cursor-pointer">
+                <div
+                  className={`flex justify-between items-center border-b-2 pb-1 ${
+                    openPage ? "text-blue-600" : ""
+                  }`}
+                  onClick={() => setOpenPage(!openPage)}
+                >
+                  <span>Page</span>
+                  <span>{openPage ? "−" : "+"}</span>
+                </div>
+
+                {openPage && (
+                  <ul className="menu bg-base-100 rounded-box w-full mt-2 p-2 shadow-sm">
+                    <li>
+                      <a className="text-nowrap" href="/user/privacyPolicy">
+                        Privacy Policy
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </div>
+
+              {/* My Account Dropdown */}
+              <div className="cursor-pointer">
+                <div
+                  className={`flex justify-between items-center border-b-2 pb-1 ${
+                    openAccount ? "text-blue-600" : ""
+                  }`}
+                  onClick={() => setOpenAccount(!openAccount)}
+                >
+                  <div className="flex gap-2 items-center">
+                    <User size={18} color="blue" />
+                    <p>My Account</p>
+                  </div>
+                  <span>{openAccount ? "−" : "+"}</span>
+                </div>
+
+                {openAccount && (
+                  <ul className="menu bg-base-100 rounded-box w-full mt-2 p-2 shadow-sm">
+                    <li>
+                      <a className="text-nowrap" href="/user/privacyPolicy">
+                        Privacy Policy
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

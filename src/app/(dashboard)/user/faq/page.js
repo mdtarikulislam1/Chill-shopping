@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 
 export const metadata = {
-  title: "FAQ | Chil",
+  title: "FAQs | Chil",
   description:
     "Find answers to frequently asked questions about our products, shipping, returns, and more.",
 };
@@ -73,7 +73,7 @@ export default function page() {
     >
      {
       items.map(i=>(
-         <AccordionItem key={i?.id} value="item-1" className='bg-white shadow border-none px-4'>
+         <AccordionItem key={i?.id} value={`item-${i?.id}`} className='bg-white shadow border-none px-4'>
         <AccordionTrigger className="cursor-pointer no-underline hover:no-underline focus:no-underline data-[state=open]:text-blue-500 text-md font-semibold text-gray-600">
          {i?.title}
         </AccordionTrigger>
